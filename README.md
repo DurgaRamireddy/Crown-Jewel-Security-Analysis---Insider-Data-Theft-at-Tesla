@@ -1,101 +1,117 @@
-# Crown-Jewel-Security-Analysis---Insider-Data-Theft-at-Tesla
+# Crown Jewel Security Analysis - Insider Data Theft at Tesla
 
-## Overview
-This project analyzes an insider threat scenario involving the alleged exfiltration of sensitive data from Tesla. The analysis focuses on identifying and protecting the organization's crown jewel assets using the Bowtie risk analysis model. The study evaluates how insider threats can compromise critical intellectual property and examines the preventive and mitigative security controls necessary to reduce such risks.
+A cyber risk analysis applying the Bowtie risk model to a real-world insider threat scenario involving alleged intellectual property exfiltration at Tesla - identifying crown jewel assets, mapping threat pathways, evaluating control failures, and recommending preventive and mitigative security controls.
 
-## Objective
-The objective of this project was to:
-- Identify Tesla’s crown jewel assets
-- Analyze the insider threat scenario
-- Apply the Bowtie Model to visualize risk pathways
-- Identify threats, consequences, and control failures
-- Recommend preventive and mitigative security controls
+---
 
-## Security Framework Used
-**Bowtie Risk Analysis Model**
-The Bowtie Model is a visual risk analysis framework used to understand how threats lead to security incidents and how controls can prevent or mitigate their impact.
+## Scenario
 
-It consists of:
-| Component           | Description                     |
-| ------------------- | ------------------------------- |
-| Hazard              | Valuable asset at risk          |
-| Top Event           | Loss of control over the asset  |
-| Threats             | Causes leading to the event     |
-| Preventive Barriers | Controls preventing the event   |
-| Consequences        | Impact if the event occurs      |
-| Mitigative Barriers | Controls reducing impact        |
-| Escalation Factors  | Conditions that weaken controls |
+An employee with legitimate access allegedly exfiltrated confidential engineering data from Tesla's internal network. This analysis uses the Bowtie risk model to deconstruct how the threat materialized, what controls failed, and what organizational and technical safeguards could have prevented or contained the incident.
+
+---
+
+## Security Framework - Bowtie Risk Model
+
+The Bowtie model visualizes how a threat event unfolds from cause to consequence, and where controls can interrupt the chain.
+
+| Component | Description |
+|---|---|
+| Hazard | Valuable asset at risk |
+| Top Event | Loss of control over the asset |
+| Threats | Causes leading to the top event |
+| Preventive Barriers | Controls that stop the event from occurring |
+| Consequences | Impact if the event occurs |
+| Mitigative Barriers | Controls that reduce impact after the event |
+| Escalation Factors | Conditions that weaken or bypass controls |
+
+![Bowtie Risk Model](Bowtie%20Model.png)
+
+---
 
 ## Crown Jewel Assets
-The critical assets analyzed in this scenario include:
-- Proprietary engineering designs
-- Manufacturing automation systems
-- Internal intellectual property
-- Sensitive corporate data stored within internal networks
-These assets represent high strategic value and require strong access controls and monitoring mechanisms.
 
-## Threat Scenario
-The analyzed scenario involves an insider data theft incident where an employee with legitimate access allegedly exfiltrated confidential company data. The insider exploited authorized access privileges to remove sensitive information from the internal network environment.
+Assets with the highest strategic value - the primary targets in this scenario:
 
-## Bowtie Model Analysis
-**Hazard**
-Tesla’s proprietary engineering data and intellectual property stored within internal systems.
+- Proprietary engineering designs and manufacturing automation systems
+- Internal intellectual property and R&D data
+- Sensitive corporate data stored on internal networks
 
-**Top Event**
-Unauthorized exfiltration of sensitive data by an insider.
-**Threats**
+These assets require the strongest access controls, monitoring, and data governance given their competitive and financial value to the organization.
+
+---
+
+## Bowtie Analysis
+
+### Hazard
+Tesla's proprietary engineering data and intellectual property stored within internal systems.
+
+### Top Event
+Unauthorized exfiltration of sensitive data by a trusted insider.
+
+### Threats (Left Side - Causes)
 - Disgruntled employee with privileged access
 - Poor enforcement of access policies
-- Privilege creep from outdated permissions
-- Lack of real-time user behavior monitoring
-**Consequences**
-- Exposure of proprietary engineering data
-- Loss of competitive advantage
-- Reputational damage
-- Legal and financial consequences
-- Loss of stakeholder trust 
+- Privilege creep from outdated or unreviewed permissions
+- Absence of real-time user behavior monitoring
 
-## Preventive Security Controls
-The following controls help reduce the likelihood of insider data theft:
-| Control                          | Purpose                                            |
-| -------------------------------- | -------------------------------------------------- |
-| Role-Based Access Control (RBAC) | Restricts access based on job function             |
-| User Behavior Analytics (UBA)    | Detects abnormal user activity                     |
-| Background Checks                | Identifies potential insider risk                  |
-| Security Awareness Training      | Educates employees about security responsibilities |
-| Non-Disclosure Agreements (NDAs) | Legally protects sensitive data                    |
+### Consequences (Right Side - Impact)
+- Exposure of proprietary engineering data to competitors
+- Loss of competitive advantage and first-mover position
+- Legal and financial liability
+- Reputational damage and loss of stakeholder trust
 
-## Mitigative Security Controls
-If preventive controls fail, these controls help reduce the impact:
-| Control                               | Purpose                              |
-| ------------------------------------- | ------------------------------------ |
-| Incident Response Plan (IRP)          | Structured breach response           |
-| Endpoint Detection and Response (EDR) | Detects compromised systems          |
-| Data Loss Prevention (DLP)            | Prevents unauthorized data transfers |
-| Digital Forensics Investigation       | Identifies root cause of breach      |
+---
 
-## Escalation Factor
-A key escalation factor in this scenario is privilege creep, caused by the absence of periodic access reviews. Employees may accumulate unnecessary permissions over time, violating the principle of least privilege and increasing insider threat risk. This often results from weak identity governance or lack of proper access management processes.
+## Security Controls
 
-## Key Security Takeaways
-- Insider threats pose significant risks to high-value organizational assets.
-- Access control policies must be continuously reviewed and enforced.
-- Security is not purely technical; organizational governance and employee oversight are equally critical.
-- Risk modeling frameworks like Bowtie help organizations understand complex security failures.
+### Preventive Barriers - Stop the Event
+
+| Control | Purpose |
+|---|---|
+| Role-Based Access Control (RBAC) | Restrict data access to job function only |
+| User Behavior Analytics (UBA) | Detect anomalous data access or transfer patterns |
+| Background Checks | Surface potential insider risk during hiring |
+| Security Awareness Training | Reinforce employee accountability for data handling |
+| Non-Disclosure Agreements (NDAs) | Create legal deterrence against exfiltration |
+
+### Mitigative Barriers - Reduce Impact After the Event
+
+| Control | Purpose |
+|---|---|
+| Incident Response Plan (IRP) | Structured, rehearsed breach response |
+| Endpoint Detection & Response (EDR) | Detect and contain compromised endpoints |
+| Data Loss Prevention (DLP) | Block unauthorized data transfers in real time |
+| Digital Forensics | Identify root cause, scope, and chain of custody |
+
+---
+
+## Escalation Factor - Privilege Creep
+
+The key control failure in this scenario was **privilege creep** - the gradual accumulation of unnecessary access permissions over time due to absent or infrequent access reviews.
+
+Without periodic recertification of user permissions, employees retain access well beyond what their current role requires, directly violating the principle of least privilege. This widens the insider threat attack surface significantly and is a common failure in organizations without mature identity governance programs.
+
+**Mitigation:** Quarterly access reviews, automated provisioning/de-provisioning tied to HR systems, and enforced least-privilege policies across all roles.
+
+---
+
+## Key Takeaways
+
+- Insider threats are often enabled by governance failures, not just technical gaps - access reviews and least privilege enforcement are as critical as any technical control.
+- UBA and DLP together create the monitoring and blocking layer needed to catch exfiltration before it completes.
+- Risk modeling frameworks like Bowtie force organizations to think about both prevention *and* impact reduction not just one side of the equation.
+- High-value IP requires a layered defense: access control + behavioral monitoring + data governance + response readiness.
+
+---
 
 ## Skills Demonstrated
-- Cyber Risk Analysis
-- Crown Jewel Analysis
-- Insider Threat Modeling
-- Security Control Evaluation
-- Risk Visualization using Bowtie Model
-- Security Governance and Policy Analysis
-- Security Incident Impact Assessment
 
-## Author
+`Cyber Risk Analysis` `Crown Jewel Analysis` `Insider Threat Modeling` `Bowtie Risk Model` `Security Control Evaluation` `Security Governance` `Identity & Access Management` `Incident Impact Assessment`
 
-Durga Sai Sri Ramireddy </br>
-Master’s Student - Cybersecurity </br>
-University of Houston
+---
 
-*This project was developed for academic purposes and is intended to demonstrate cybersecurity risk analysis techniques using publicly known insider threat scenarios.*
+> This analysis was developed for academic purposes using a publicly known insider threat scenario to demonstrate cybersecurity risk analysis techniques.
+
+**Author:** Durga Sai Sri Ramireddy | MS Cybersecurity, University of Houston  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0072b1?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/durgaramireddy)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/DurgaRamireddy)
